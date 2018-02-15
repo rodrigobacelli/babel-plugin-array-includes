@@ -12,7 +12,7 @@ describe('babel-plugin-transform-array-includes', function() {
 			.to.equal('var a=[];a.indexOf(1)!==-1;');
 	});
 	it('var a=[]; b=a.map(...); b.includes(1)', function() {
-		expect(babel.transform('var a=[];b=a.map(x=>x+1);b.includes(1);', {plugins: [plugin], compact: true}).code)
-			.to.equal('var a=[];b=a.map(x => x+1);b.indexOf(1)!==-1;');
+		expect(babel.transform('var a=[]; b=a.map(x => x+1); b.includes(1);', {plugins: [plugin], compact: true}).code)
+			.to.equal('var a=[];b=a.map(x=>x+1);b.indexOf(1)!==-1;');
 	});
 });
